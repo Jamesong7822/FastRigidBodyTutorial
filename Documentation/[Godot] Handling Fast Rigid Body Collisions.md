@@ -2,7 +2,7 @@
 
 -------
 
-![fastRBClipping](Assets\fastRBClipping.gif)
+![fastRBClipping](Assets/fastRBClipping.gif)
 
 As of the time of writing, I am using the latest released Godot 3.3. As observed from the above gif, it is not uncommon for game engines to face collision issues for fast moving rigid-bodies that cannot "Clip-through" and not interact with static bodies, especially thin static bodies.
 
@@ -10,11 +10,11 @@ As of the time of writing, I am using the latest released Godot 3.3. As observed
 
 What seems to be causing the issue? Game engines, like Godot, run at constant rates or "ticks" to perform (physics) calculations and render the output on our screens. In the above example, the physics tick rate is set at a constant 60 fps ( 16.67 ms). This means at every physics frame time (~ 16.67ms), Godot simulates the position of our fast moving bullet 16.67ms in the future, and then renders it out to our screens. In the case of a "not-so-fast-moving" bullet, after one physics frame, the bullet collides and overlaps with the static body wall. This overlap would inform Godot's physics engine that a collision has occurred, and Godot would render the corresponding action (the bullet bouncing off the wall for instance).
 
-![notsofastRB](Assets\notsofastRB.png)
+![notsofastRB](Assets/notsofastRB.png)
 
 Now, it so happens that despite the small frame time, the entirety of the bullet has crossed from the left hand side of the static body wall to the right hand side of the static body wall. 
 
-![fastRBClipping](Assets\fastRBClipping.png)
+![fastRBClipping](Assets/fastRBClipping.png)
 
 ## 2D - Solution
 
