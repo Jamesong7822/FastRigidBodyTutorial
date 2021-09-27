@@ -2,7 +2,7 @@
 
 -------
 
-![fastRBClipping](C:\Users\Jamesong7822\Desktop\FastRigidBodyTutorial\Documentation\Assets\fastRBClipping.gif)
+![fastRBClipping](Assets\fastRBClipping.gif)
 
 As of the time of writing, I am using the latest released Godot 3.3. As observed from the above gif, it is not uncommon for game engines to face collision issues for fast moving rigid-bodies that cannot "Clip-through" and not interact with static bodies, especially thin static bodies.
 
