@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GUI.gd" type="Script" id=1]
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 500
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 400
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 541.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+
+[node name="SpeedContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 521.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SpeedContainer"]
+margin_right = 39.0
+margin_bottom = 14.0
+size_flags_vertical = 2
+text = "Speed"
+align = 1
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SpeedContainer"]
+margin_left = 49.0
+margin_right = 476.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="SliderValue" type="Label" parent="MarginContainer/VBoxContainer/SpeedContainer"]
+margin_left = 486.0
+margin_right = 521.0
+margin_bottom = 14.0
+size_flags_horizontal = 9
+size_flags_vertical = 2
+text = "Value"
+align = 1
+valign = 1
+
+[node name="RaycastEnabled" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 521.0
+margin_bottom = 44.0
+text = "Raycast Detection"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 521.0
+margin_bottom = 72.0
+
+[node name="ShapeCastEnabled" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 479.0
+margin_bottom = 24.0
+text = "Shapecast Detection (Bug does not work as described in github issues)"
+
+[node name="LinkButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 483.0
+margin_right = 521.0
+margin_bottom = 24.0
+text = "Link"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 521.0
+margin_bottom = 90.0
+text = "Press \"Space\" to fire!"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SpeedContainer/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/RaycastEnabled" to="." method="_on_RaycastEnabled_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/ShapeCastEnabled" to="." method="_on_ShapeCastEnabled_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/LinkButton" to="." method="_on_LinkButton_pressed"]

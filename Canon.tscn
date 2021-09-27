@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Canon.gd" type="Script" id=1]
+
+[node name="Canon" type="Node2D"]
+script = ExtResource( 1 )
+fireSpeed = 1000.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.352941, 0.745098, 0.898039, 1 )
+polygon = PoolVector2Array( 4.63531, -0.614731, 77.7715, 0.574478, 77.1769, 34.4669, 40.9061, 34.4669, 35.5547, 57.6564, -0.121521, 57.6564 )
+
+[node name="FireAt" type="Position2D" parent="."]
+position = Vector2( 88.5959, 14.2705 )

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://StaticWall2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Canon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World2D.gd" type="Script" id=4]
+
+[node name="World2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 750, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 2 )]
+
+[node name="Canon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 204.107, 270.883 )
+
+[connection signal="raycastEnabled" from="CanvasLayer/GUI" to="." method="_on_GUI_raycastEnabled"]
+[connection signal="shapeCastEnabled" from="CanvasLayer/GUI" to="." method="_on_GUI_shapeCastEnabled"]
+[connection signal="speedChanged" from="CanvasLayer/GUI" to="." method="_on_GUI_speedChanged"]
+
+[editable path="CanvasLayer/GUI"]
